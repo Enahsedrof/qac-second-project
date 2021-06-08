@@ -10,6 +10,9 @@ def index():
 
     payload = {'rep': rep, 'exercise': exercise}
     workout = requests.post('https://service-4:5000/post/workout', json=payload).json()
+    #db.session
+    #db.commit
+    #workout.query.all()
 
     return f"You must do {rep} {exercise} to complete your workout for {workout} calories burned.\n"
 
