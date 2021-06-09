@@ -17,12 +17,12 @@ class Workouts(db.Model):
 
 @app.route('/')
 def index():
-    rep = requests.get('http://service-2:5000/get_rep').json()
-    exercise = requests.get('http://service-3:5000/get_exercise').json()
+    rep = requests.get("http://service-2:5000/get_rep").json()
+    exercise = requests.get("http://service-3:5000/get_exercise").json()
 
     payload = jsonify({'rep': rep, 'exercise': exercise})
     kcal = requests.post('http://service-4:5000/post_kcals', json=payload).json()
-    
+        
     all_workouts= Workouts.query.order_by(desc(Workouts.id)).limit(5).all()
     
     db.session.add(Workouts(number = rep, exercise = exercise ))
