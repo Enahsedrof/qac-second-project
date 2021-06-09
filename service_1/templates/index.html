@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  
+<html>
+    <header>
+        <title>
+            Workout – Home
+        </title>
+    </header>
+    <body>
+        <h1>Workouts and their sets</h1>
+        <p>
+            Do {{ rep }} of these {{ exercise }}
+        </p>
+        <h2>Previous sets:</h2>
+        <p>
+            {% for workout in all_workouts %}
+            Do  {{ workout.rep }} of these {{ workout.exercise }}
+            <br>
+            {% endfor %}
+        </p>
+    </body>
+</html>
+
+{% endblock body %}
