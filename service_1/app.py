@@ -21,7 +21,7 @@ def index():
     exercise = requests.get('https://service-3:5000/get/exercise').text
 
     payload = {'rep': rep, 'exercise': exercise}
-    workout = requests.post('https://service-4:5000/post/workout', json=payload).json()
+    kcal = requests.post('https://service-4:5000/post/workout', json=payload).json()
     
     all_workouts= Workouts.query.order_by(desc(Workouts.id)).limit(5).all()
     
