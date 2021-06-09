@@ -9,7 +9,7 @@ services:
         - target: 5000
           published: 80
         environment:
-        - DATABASE_URI: "${DATABASE_URI}"
+        - DATABASE_URI=${DATABASE_URI}
         
     service-2:
         container_name: "service-2"
