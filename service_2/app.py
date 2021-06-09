@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 rep = [5, 10, 15]
 
-@app.route('/get/rep')
+@app.route('/get_rep', methods=['GET'])
 def get_rep():
     return jsonify(random.choice(rep))
 

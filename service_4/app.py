@@ -10,7 +10,7 @@ kcals = {
     }
 }
 
-@app.route('/post/kcals', methods=['POST'])
+@app.route('/post_kcals', methods=['POST'])
 def post_kcals():
     rep = request.json['rep']
     exercise = request.json['exercise']

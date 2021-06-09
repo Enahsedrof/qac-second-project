@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 exercise = ["Press ups", "Sits ups", "Pull ups"]
 
-@app.route('/get/exercise')
+@app.route('/get_exercise', methods=['GET'])
 def get_exercise():
     return jsonify(random.choice(exercise))
 
