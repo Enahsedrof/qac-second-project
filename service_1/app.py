@@ -26,7 +26,7 @@ def index():
     all_workouts= Workouts.query.order_by(desc(Workouts.id)).limit(5).all()
     
     db.session.add(Workouts(number = rep, exercise = exercise ))
-    db.session.commit()
+    #db.session.commit()
     
     return render_template("index.html", rep=rep, exercise=exercise, all_workouts=all_workouts)
 
