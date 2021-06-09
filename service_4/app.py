@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-workouts = {
+kcals = {
     'exercise': {
         'Press ups' : 15,
         'Sit ups' : 10,
@@ -10,14 +10,14 @@ workouts = {
     }
 }
 
-@app.route('/post/workout', methods=['POST'])
-def post_workout():
+@app.route('/post/kcals', methods=['POST'])
+def post_kcals():
     rep = request.json['rep']
     exercise = request.json['exercise']
 
-    workout = workouts['exercise'][exercise] * ['rep'][rep] 
+    kcal = kcals['exercise'][exercise] * ['rep'][rep] 
 
-    return jsonify(workout)
+    return jsonify(kcal)
 
 if __name__ == '__main__':
     app.run(host ='0.0.0.0')
