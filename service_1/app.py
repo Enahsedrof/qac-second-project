@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import desc
 import requests
@@ -17,11 +17,11 @@ class Workouts(db.Model):
 
 @app.route('/')
 def index():
-    rep = requests.get('https://service-2:5000/get/rep').json()
-    exercise = requests.get('https://service-3:5000/get/exercise').text
+    rep = requests.get('http://service-2:5000/get/rep').json()
+    exercise = requests.get('http://service-3:5000/get/exercise').json()
 
-    payload = {'rep': rep, 'exercise': exercise}
-    kcal = requests.post('https://service-4:5000/post/workout', json=payload).json()
+    payload = jsonify({'rep': rep, 'exercise': exercise})
+    kcal = requests.post('http://service-4:5000/post/workout', json=payload).json()
     
     all_workouts= Workouts.query.order_by(desc(Workouts.id)).limit(5).all()
     
