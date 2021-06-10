@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script{
                     if (env.install == 'true'){
-                        sh 'bash jenkins/install-requirements.sh'
+                        sh 'bash scripts/install-requirements.sh'
                     }
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
                 // pytest
                 // run for each service
                 // produce cov reports
-                sh 'bash jenkins/test.sh'
+                sh 'bash scripts/test.sh'
             }
         }
         stage('Build') {
@@ -50,7 +50,7 @@ pipeline {
                 // create swarm infrastructure
                 // copy over docker-compose.yaml
                 // ssh: docker stack deploy --compose-file docker-compose.yaml animal_noises
-                sh 'bash jenkins/deploy.sh'
+                sh 'bash scripts/deploy.sh'
             }
         }
     }
