@@ -14,3 +14,4 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 #Docker login
 docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD docker.io
+docker push qac-second-project
