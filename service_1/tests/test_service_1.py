@@ -37,3 +37,4 @@ class TestHome(TestBase):
                 response = self.client.get(url_for("index"))
             self.assertIn(b'Do 15 of these Sit ups', response.data)
             self.assertIn(b'Do 10 of these Pull ups', response.data)
+            #self.assertIN(response.json['rep'], range(14,17))
