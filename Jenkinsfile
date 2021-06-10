@@ -3,11 +3,17 @@ pipeline {
     environment {
         DOCKER_USERNAME = credentials('DOCKER_USERNAME')
         DOCKER_PASSWORD = credentials('DOCKER_PASSWORD')
+        install = 'false'
+        DATABASE_URI = credentials('DATABASE_URI')
     }
     stages {
         stage('Install Requirements') {
             steps {
-                sh 'bash scripts/install-requirements.sh'
+                scripts{
+                    if (env.install == 'true'){
+                        sh 'bash scripts/install-requirements.sh'
+                    }
+                }
             }
         }
 
