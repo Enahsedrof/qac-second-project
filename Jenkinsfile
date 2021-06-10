@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Install Requirements') {
             steps {
-                scripts{
+                script{
                     if (env.install == 'true'){
                         sh 'bash scripts/install-requirements.sh'
                     }
