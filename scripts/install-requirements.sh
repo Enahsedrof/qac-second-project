@@ -13,4 +13,4 @@ sudo curl -L "https://github.com/docker/compose/releases/download/${version}/doc
 sudo chmod +x /usr/local/bin/docker-compose
 
 #Docker login
-docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
+docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD docker.io
