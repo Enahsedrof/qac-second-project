@@ -6,7 +6,7 @@ services:
     build: ./service_1
     ports:
     - target: 5000
-      published: 80
+      published: 5000
     environment:
     - DATABASE_URI=${DATABASE_URI}
         
@@ -14,14 +14,20 @@ services:
     container_name: "service-2"
     image: enahsedrof/service-2
     build: ./service_2
+    ports:
+      - '5001:5001'
 
   service-3:
     container_name: "service-3"
     image: enahsedrof/service-3
     build: ./service_3
+    ports:
+      - '5002:5002'
 
   service-4:
     container_name: "service-4"
     image: enahsedrof/service-4
-    build: ./service_4   
+    build: ./service_4
+    ports:
+      - '5003:5003'  
         
