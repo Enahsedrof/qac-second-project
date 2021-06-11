@@ -22,7 +22,7 @@ def index():
     exercise = requests.get("http://service-3:5002/get_exercise").text
 
     payload = jsonify({'rep': rep, 'exercise': exercise})
-    kcal = requests.post('http://service-4:5003/post_kcals', json=payload).json()
+    kcal = requests.post('http://service-4:5003/post_kcals', json=payload).text
     
     db.session.add(Workouts(number = rep, exercise = exercise ))
     db.session.commit()

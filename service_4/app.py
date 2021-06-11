@@ -9,6 +9,6 @@ def post_kcals():
 
     kcal = rep * 10
 
-    return jsonify(kcal)
+    return str(kcal)
 
 if __name__ == '__main__': app.run(host='0.0.0.0', port = 5003, debug=True)
