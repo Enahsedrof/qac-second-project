@@ -14,11 +14,11 @@ def home():
     form = GenerateWorkout()
 
     if form.validate_on_submit():
-        rep_number = requests.get('http://service_3:5002/getreps').json()
-        exercise = requests.get('http://service_2:5001/getexercises').text
+        rep_number = requests.get('http://enahsedrof/service-3:5002/getreps').json()
+        exercise = requests.get('http://enahsedrof/service-2:5001/getexercises').text
 
         senditems = {"dnum": rep_number, "exer": exercise}
-        info = requests.post("http://service_4:5003/kcal", json=senditems).json()
+        info = requests.post("http://enahsedrof/service-4:5003/kcal", json=senditems).json()
 
         new_workout = workout(
             exercise = info["exercise"],
