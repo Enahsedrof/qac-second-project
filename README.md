@@ -26,10 +26,13 @@ A simple app that will generate for you an exercise to do and how many reps of t
 
 Used a KanBan board on Jira to set tasks and track the progress of the project.
 
+![alt text](/images/jira.PNG)
+
 ### Database
 
 A single database connected to the web app, the only real purpose of this is to track the user generated workouts and then list them via the last 5 generated. A relatively useless function but it does show case the database connection established.
 
+![alt text](/images/database.PNG)
 
 * ID: unique identifier
 * Exercise: String value containing the variable in question. “Press ups” for example
@@ -40,11 +43,15 @@ A single database connected to the web app, the only real purpose of this is to 
 
 A risk assessment was completed initially and then added to as things became more apparent.
 
+![alt text](/images/risk.PNG)
+
 ### Continuous Deployemnt and Integration
 
 Jenkins was used as an automated process of the Contiuous Deployment and Integration devops mindset.
 Below is the completed Jenkins pipeline for the project.
-Insert Jenkins image here
+
+![alt text](/images/jenkins.PNG)
+
 There are 7 Stages:
 
 * Checkout SCM: Simply checks out the code version which will be trigged to run via the linked github repo.
@@ -60,6 +67,8 @@ There are 7 Stages:
 
 The project uses 4 services to run the application.
 
+![alt text](/images/services.PNG)
+
 Services:
 * Front-End, shows the user which player has been drafted. acts as a base for the API calls
 * Generates a random exercise from a given list
@@ -73,6 +82,10 @@ Otherwise the app will commend you on burning over 100 calories
 
 Automated testing was done via Jenkins. Requests_mock was also used to mock the unit test of service 1. Request mock was used to perform a dummy live test instead of needing the containers in place to actually run the app.
 
+![alt text](/images/pyest1.PNG)
+![alt text](/images/pytest2.PNG)
+![alt text](/images/pytest3.PNG)
+
 85% coverage was achieved overall. This is mostly a failure in service_4. Which is to be expected given the rushed finish I made on the app.
 
 
@@ -80,6 +93,11 @@ Automated testing was done via Jenkins. Requests_mock was also used to mock the 
 ### Front End
 
 Front end is simply a little message and a submit button. Upon clicking this you will be given your exercise and the number of reps to do for it. I however had some issues with the URL request when using the other services so the app does not go further beyond the home page
+
+![alt text](/images/frontend.PNG)
+![alt text](/images/frontend_bug.PNG)
+
+Here you can see after clicking the button the error message I am getting.
 
 ### Improvements
 
