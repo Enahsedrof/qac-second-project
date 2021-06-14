@@ -1,0 +1,40 @@
+
+<html>
+    <head>Workout plan</head>
+    <title>{{title}}</title>
+    <body style="background-color:rgb(58, 82, 189);">
+    {% block body_content%}
+    
+    <div class='form'>
+        
+        <h2>Time to get active!
+        </h2>
+        <form method = 'POST' action="">
+            {{ form.hidden_tag() }}
+            <div class = "submitform">
+                {{form.submit}}
+            </div>
+        </form>
+    </div>
+    {% if info %}
+    You had selected a:
+    {{info["exercise"]}} for
+    Calories burned - {{info["fake_kcal"]}}, 
+    Calories burned - {{info["kcal"]}} 
+    ({{info["rep_number"]}} Overall)
+    
+    <table>
+    {% for reps in last_exercises %}
+    
+    <p><th>{{reps.exercise}}</th>
+    <th>{{reps.reps}}</th></p>
+    
+    {% endfor %}
+    </table>
+    {% endif %}
+    
+    {% endblock %}
+    </body>
+    
+    
+    </html>
