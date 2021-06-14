@@ -8,3 +8,7 @@ pytest
 pytest-cov
 flask-testing
 pymysql
+wtforms
+selenium
+requests
+requests_mock
