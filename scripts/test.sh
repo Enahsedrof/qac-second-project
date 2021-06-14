@@ -1,6 +1,31 @@
-python3 service_1/create.py
+  
+#!/bin/bash
+
+# install requirements/create venv
+sudo apt-get update
+sudo apt-get install python3-venv python3-pip -y
+
+python3 -m venv venv
 source venv/bin/activate
-python3 -m pytest service_1/testing/test_service_1.py --cov=application
-python3 -m pytest service_2/testing/test_service_2.py --cov=app
-python3 -m pytest service_3/testing/test_service_3.py --cov=app
-python3 -m pytest service_4/testing/test_service_4.py --cov=app
+
+pip3 install -r test_requirements.txt
+
+# pytest coverage service_1
+cd service_1
+python3 -m pytest --cov=app --cov-report term-missing
+cd ..
+
+# pytest coverage service_2
+cd service_2
+python3 -m pytest --cov=app --cov-report term-missing
+cd ..
+
+# pytest coverage service_3
+cd service_3
+python3 -m pytest --cov=app --cov-report term-missing
+cd ..
+
+# pytest coverage service_4
+cd service_4
+python3 -m pytest --cov=app --cov-report term-missing
+cd ..
