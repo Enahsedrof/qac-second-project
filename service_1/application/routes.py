@@ -4,6 +4,9 @@ from application import app, db
 from application.models import workout, GenerateWorkout
 from sqlalchemy import desc
 import random, requests
+import os
+
+app.config['SECRET_KEY'] = "erhaetrha"
 
 @app.route('/', methods = ['GET', 'POST'])
 @app.route('/home', methods = ['GET', 'POST'])
