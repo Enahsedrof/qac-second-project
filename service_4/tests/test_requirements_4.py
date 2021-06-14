@@ -11,7 +11,7 @@ class TestResponse(TestBase):
         exercise = "Press ups"
         rep = 10
         senditems = {"dnum": rep, "exer": exercise}
-        info = self.client.post(url_for("kcal"), json=senditems).json
+        info = self.client.post(url_for("calculatekcal"), json=senditems).json
         print(info)
         print("Testing variables")
         
@@ -22,7 +22,7 @@ class TestResponse(TestBase):
         exercise = "Press ups"
         rep = 5
         senditems = {"dnum": rep, "exer": exercise}
-        info = self.client.post(url_for("kcal"), json=senditems).json
+        info = self.client.post(url_for("calculatekcal"), json=senditems).json
         
         
         self.assertIn("kcal",str(info))
