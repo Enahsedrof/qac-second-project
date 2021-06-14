@@ -9,6 +9,8 @@ services:
       published: 5000
     environment:
     - DATABASE_URI=${DATABASE_URI}
+    deploy:
+            replicas: 3
         
   service-2:
     container_name: "service-2"
@@ -16,6 +18,8 @@ services:
     build: ./service_2
     ports:
       - '5001:5001'
+    deploy:
+        replicas: 3
 
   service-3:
     container_name: "service-3"
@@ -23,11 +27,15 @@ services:
     build: ./service_3
     ports:
       - '5002:5002'
+    deploy:
+        replicas: 3  
 
   service-4:
     container_name: "service-4"
     image: enahsedrof/service-4
     build: ./service_4
     ports:
-      - '5003:5003'  
+      - '5003:5003'
+    deploy:
+        replicas: 3
         
