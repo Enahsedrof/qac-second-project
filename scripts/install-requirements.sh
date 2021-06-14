@@ -23,3 +23,5 @@ sudo apt install ansible -y
 
 type ansible
 type ansible-playbook
+
+pip3 install -r test_requirements.txt
