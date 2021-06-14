@@ -18,7 +18,7 @@ def home():
         exercise = requests.get('http://service-2:5001/getexercises').text
 
         senditems = {"dnum": rep_number, "exer": exercise}
-        info = requests.post("http://service-4:5003/kcal", json=senditems).json()
+        info = requests.post("http://service-4:5003/kcal", json=senditems).text()
 
         new_workout = workout(
             exercise = info["exercise"],
