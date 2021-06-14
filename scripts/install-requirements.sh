@@ -1,5 +1,14 @@
 #!/bin/bash
 
+sudo apt install python3-venv
+rm -rf venv
+python3 -m venv venv
+source venv/bin/activate
+python3 --version
+
+pip3 install pytest pytest-cov
+
+#Docker
 sudo apt update
 sudo apt install -y curl jq
 
@@ -24,3 +33,4 @@ sudo apt install ansible -y
 type ansible
 type ansible-playbook
 
+pip3 install -r requirements.txt
