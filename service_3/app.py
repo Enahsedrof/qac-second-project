@@ -1,11 +1,10 @@
-from flask import Flask
+from flask import Flask, jsonify
 import random
+
 app = Flask(__name__)
 
-exercises = ["Press ups","Pull ups","Sit ups","Burpees","Starjumps",]
+@app.route('/getreps', methods= ["GET"])
+def rep():
+    return jsonify(random.randint(1,15))
 
-@app.route('/get_exercise', methods=['GET'])
-def get_exercise():
-    return (random.choice(exercises))
-
-if __name__ == '__main__': app.run(host='0.0.0.0', port = 5002, debug=True)
+if __name__=="__main__": app.run(port=5002, host='0.0.0.0', debug=True)  

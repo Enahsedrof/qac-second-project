@@ -1,14 +1,23 @@
-from flask import Flask, request, jsonify
+  
+from flask import redirect, url_for, request, jsonify, Flask
+import random, requests
 
 app = Flask(__name__)
 
-@app.route('/post_kcals', methods=['POST', 'GET'])
-def post_kcals():
-    rep = request.json['rep']
-    exercise = request.json['exercise']
+@app.route('/kcal', methods = ['GET', 'POST'])
+def calculatekcal():
+    rep_number = request.json["dnum"]
+    exercise = request.json["exer"]
 
-    kcal = rep * 10
+    
+    for i in range (8):
+        if exercise ==  "Binge TV":
+            fake_kcal = "Nice try, Tv is not exercise"
+        
+        else:
+            kcal = "Nice going, you burned over 100 Calories"
 
-    return str(kcal)
+    info = {"exercise": exercise, "rep_number": rep_number, "fake_kcal": fake_kcal, "kcal": kcal } 
+    return jsonify(info)
 
-if __name__ == '__main__': app.run(host='0.0.0.0', port = 5003, debug=True)
+if __name__=="__main__": app.run(port=5003, host='0.0.0.0', debug=True)  
